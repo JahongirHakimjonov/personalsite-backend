@@ -20,5 +20,6 @@ class ProjectSerializer(serializers.ModelSerializer):
     def get_tools(self, obj):
         # Local import to avoid circular import
         from apps.portfolio.serializers import SkillSerializer
+
         tools = obj.tools.all()
         return SkillSerializer(tools, many=True).data
