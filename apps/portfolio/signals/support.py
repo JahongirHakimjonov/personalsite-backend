@@ -17,4 +17,6 @@ def send_email_on_answer(sender, instance, **kwargs):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[instance.email],
             )
+            print(f"Email sent to {instance.email}")
             instance.is_read = True
+            instance.save()
